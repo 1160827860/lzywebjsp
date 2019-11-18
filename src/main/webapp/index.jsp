@@ -17,8 +17,9 @@
         <input name="name" id="name" type="text"><br/>
         密码:<br/>
         <input name="password" id="password" type="password"><br/>
-        <button type="submit">提交</button>
+        <button type="submit" id="login" name="login">提交</button>
+        <a href="register.jsp">注册</a>
     </form>
-
+<script src="./js/login.js"></script>
 </body>
 </html>
