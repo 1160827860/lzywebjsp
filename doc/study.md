@@ -26,3 +26,4 @@ properties.load(new FileInputStream("druid.properties"));
 DataSource ds = DruidDataSourceFactory.createDataSource(properties);
 conn = ds.getConnection();
 ```
+ x

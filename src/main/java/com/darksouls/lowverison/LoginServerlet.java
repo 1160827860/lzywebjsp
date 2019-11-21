@@ -1,11 +1,9 @@
-package com.darksouls;
+package com.darksouls.lowverison;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.alibaba.druid.util.StringUtils;
-import sun.rmi.runtime.Log;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +11,6 @@ import javax.sql.DataSource;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.HashMap;
@@ -21,8 +18,10 @@ import java.util.Properties;
 
 /**
  * @author 李正阳 17060208112
+ * 这个java文件的版本是使用数据源，注释掉的部分是不适用数据源单纯用
+ * JDBC
  */
-public class LoginServerlet  extends HttpServlet {
+public class LoginServerlet extends HttpServlet {
     static HashMap<String,Integer> LoginPool = new HashMap<String, Integer>();
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -27,11 +27,11 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         <servlet>
             <servlet-name>LoginServlet</servlet-name>
-            <servlet-class>com.darksouls.LoginServerlet</servlet-class>
+            <servlet-class>com.darksouls.controller.LoginServerlet</servlet-class>
         </servlet>
         <servlet>
             <servlet-name>RegisterServlet</servlet-name>
-            <servlet-class>com.darksouls.RegisterServlet</servlet-class>
+            <servlet-class>com.darksouls.controller.RegisterServlet</servlet-class>
         </servlet>
         <servlet-mapping>
             <servlet-name>LoginServlet</servlet-name>

@@ -1,4 +1,4 @@
-package com.darksouls;
+package com.darksouls.lowverison;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Properties;
 
 public class RegisterServlet extends HttpServlet {
