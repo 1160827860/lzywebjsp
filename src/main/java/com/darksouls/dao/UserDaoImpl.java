@@ -3,9 +3,11 @@ package com.darksouls.dao;
 import com.darksouls.util.DuridJdbc;
 import com.darksouls.vo.User;
 
+import java.security.interfaces.RSAKey;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 public class UserDaoImpl implements UserDao {
@@ -54,6 +56,12 @@ public class UserDaoImpl implements UserDao {
 
     }
 
+    /**
+     * 查询满足此账号记录条数
+     * @param name 账号
+     * @param password 密码
+     * @return 记录数量
+     */
     public int SelectUser(String name, String password) {
         PreparedStatement prst ;
         ResultSet rs ;
@@ -73,4 +81,43 @@ public class UserDaoImpl implements UserDao {
         }
       return -1;
     }
+    /**
+     * 查询用户的id
+     */
+    public int SelectUserId(String name){
+        PreparedStatement prst ;
+        ResultSet rs;
+        String sql = "SELECT id AS user_id FROM user WHERE name = ?";
+        try {
+            prst = conn.prepareStatement(sql);
+            prst.setString(1,name);
+            rs = prst.executeQuery();
+            if(rs.next()){
+                return rs.getInt("user_id");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+
+    /**
+     * 向message表中插入
+     * @param message
+     * @param id
+     */
+    public void InsertMessage(String message,int id){
+        PreparedStatement prst ;
+        String sql = "INSERT INTO message(id,message) VALUES(?,?)";
+        try {
+            prst = conn.prepareStatement(sql);
+            prst.setInt(1,id);
+            prst.setString(2,message);
+            prst.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

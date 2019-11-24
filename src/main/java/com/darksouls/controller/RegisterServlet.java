@@ -1,6 +1,8 @@
 package com.darksouls.controller;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
+import com.darksouls.dao.UserDao;
+import com.darksouls.dao.UserDaoImpl;
 import com.darksouls.vo.User;
 
 import javax.servlet.ServletException;
@@ -21,6 +23,13 @@ public class RegisterServlet extends HttpServlet {
         String username = req.getParameter("name");
         String userpassword = req.getParameter("password");
         String email = req.getParameter("mail");
-        User user = new User(username,userpassword,email);
+        UserDao userDao = new UserDaoImpl();
+        if(userDao.SelectUser(username,userpassword) == 0){
+            User user = new User(username,userpassword,email);
+            userDao.InsertUser(user);
+            req.getRequestDispatcher("WEB-INF/view/success.jsp").forward(req,resp);
+        }else {
+            req.getRequestDispatcher("WEB-INF/view/error.jsp").forward(req,resp);
+        }
     }
 }

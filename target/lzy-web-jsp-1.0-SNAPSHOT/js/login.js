@@ -1,4 +1,4 @@
-$(function () {
+
     $("#finish").on('click',function () {
         var username = $("#name").val().trim();
         if(username == ''){
@@ -11,4 +11,3 @@ $(function () {
             return false;
         }
     })
-})
