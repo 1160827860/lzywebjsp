@@ -1,6 +1,7 @@
 package com.darksouls.dao;
 
 import com.darksouls.util.DuridJdbc;
+import com.darksouls.vo.Message;
 import com.darksouls.vo.User;
 
 import java.security.interfaces.RSAKey;
@@ -8,16 +9,18 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class UserDaoImpl implements UserDao {
-    private final Connection conn = DuridJdbc.getConnection();
+
     /**
      * 查询userName用户密码
      * @param userName 被查询用户的用户名
      * @return 该用户的密码
      */
     public String SelectUserPassword(String userName) {
+        Connection conn = DuridJdbc.getConnection();
         String sql = "SELECT password FROM user WHERE name = ?";
         PreparedStatement prst = null;
         ResultSet rs = null;
@@ -41,6 +44,7 @@ public class UserDaoImpl implements UserDao {
      * @param user 用户的实体类
      */
     public void InsertUser(User user) {
+        Connection conn = DuridJdbc.getConnection();
         PreparedStatement prst = null;
         ResultSet rs = null;
         try {
@@ -63,6 +67,7 @@ public class UserDaoImpl implements UserDao {
      * @return 记录数量
      */
     public int SelectUser(String name, String password) {
+        Connection conn = DuridJdbc.getConnection();
         PreparedStatement prst ;
         ResultSet rs ;
         try {
@@ -85,6 +90,7 @@ public class UserDaoImpl implements UserDao {
      * 查询用户的id
      */
     public int SelectUserId(String name){
+        Connection conn = DuridJdbc.getConnection();
         PreparedStatement prst ;
         ResultSet rs;
         String sql = "SELECT id AS user_id FROM user WHERE name = ?";
@@ -102,11 +108,13 @@ public class UserDaoImpl implements UserDao {
     }
 
     /**
-     * 向message表中插入
-     * @param message
-     * @param id
+     * 向message表中插入消息
+     * 由messageconmmit.jsp中调用
+     * @param message 留言内容
+     * @param id 用户表中的id
      */
     public void InsertMessage(String message,int id){
+        Connection conn = DuridJdbc.getConnection();
         PreparedStatement prst ;
         String sql = "INSERT INTO message(id,message) VALUES(?,?)";
         try {
@@ -117,6 +125,29 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 查询所有的消息
+     * @return @param ArrayList res 返回消息集合
+     */
+    public ArrayList<Message> SelectAllMessage() {
+        Connection conn  = DuridJdbc.getConnection();
+        PreparedStatement prst;
+        ResultSet rs;
+        String sql = "SELECT user_id ,text FROM message";
+        ArrayList<Message> res = new ArrayList<Message>();
+        try {
+            prst = conn.prepareStatement(sql);
+            rs = prst.executeQuery();
+            while (rs.next()){
+                Message temp = new Message();
+                res.add(temp);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return res;
     }
 
 

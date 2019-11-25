@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.darksouls.dao.UserDao" %>
+<%@ page import="com.darksouls.dao.UserDaoImpl" %><%--
   Created by IntelliJ IDEA.
   User: 李正阳
   Date: 2019/11/24
@@ -13,7 +14,11 @@
 <body>
 <%
     String message = request.getParameter("message");
-
+    String usename = (String)request.getSession().getAttribute("USER_NAME");
+    UserDao userDao = new UserDaoImpl();
+    int id  = userDao.SelectUserId(usename);
+    userDao.InsertMessage(message,id);
+    request.getRequestDispatcher("../WEB-INF/view/success.jsp").forward(request,response);
 %>
 </body>
 </html>
