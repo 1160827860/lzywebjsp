@@ -16,7 +16,6 @@
     <title>Title</title>
 </head>
 <body>
-
     <jsp:include page="checkUserLevel.jsp"></jsp:include>
     登陆成功
     ${USER_NAME}访问登陆Servlet的次数${NUM}<br>
@@ -29,6 +28,7 @@
     </form>
     <br>
     所有留言如下：<br>
+
     <%
         UserDao dao = new UserDaoImpl();
         ArrayList<Message> arr ;
@@ -44,15 +44,8 @@
             out.println("时间：" + temp.getCteate_date()+"<br>");
             out.println("<br>");
         }
+
     %>
-    <br>
-    <%!
-        private int visit = 0;
-    %>
-    <%
-        visit ++;
-        application.setAttribute("VISIT",visit);
-    %>
-    本页面一共被访问了${VISIT}次
+
 </body>
 </html>

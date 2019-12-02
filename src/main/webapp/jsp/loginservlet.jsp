@@ -24,7 +24,7 @@
     String userPassword = request.getParameter("password");
     UserDao userDao = new UserDaoImpl();
     try {
-    int n = userDao.SelectUser(userName,userPassword);
+    int n = userDao.selectUser(userName,userPassword);
     /**
      * 验证登陆
      */

@@ -17,9 +17,9 @@
         String userpassword = request.getParameter("password");
         String email = request.getParameter("mail");
         UserDao userDao = new UserDaoImpl();
-        if(userDao.SelectUser(username,userpassword) == 0){
+        if(userDao.selectUser(username,userpassword) == 0){
             User user = new User(username,userpassword,email);
-            userDao.InsertUser(user);
+            userDao.insertUser(user);
             request.getRequestDispatcher("../WEB-INF/view/success.jsp").forward(request,response);
         }else {
             request.getRequestDispatcher("../WEB-INF/view/error.jsp").forward(request,response);

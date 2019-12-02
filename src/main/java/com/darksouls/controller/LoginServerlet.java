@@ -26,7 +26,7 @@ public class LoginServerlet  extends HttpServlet {
         UserDao userDao = new UserDaoImpl();
         try {
 //            String sqlpassword =   userDao.SelectUserPassword(userName);
-            int n = userDao.SelectUser(userName,userPassword);
+            int n = userDao.selectUser(userName,userPassword);
             /**
              * 验证登陆
              */

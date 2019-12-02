@@ -3,22 +3,28 @@ package com.darksouls.dao;
 import com.darksouls.vo.Message;
 import com.darksouls.vo.User;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public interface UserDao {
 
-    String SelectUserPassword(String name);
+    String selectUserPassword(String name);
 
-    void InsertUser(User user);
+    void insertUser(User user);
 
-    int SelectUser(String name,String password);
+    int selectUser(String name,String password);
 
-     int SelectUserId(String name);
+     int selectUserId(String name);
 
-    void InsertMessage(String message,int id);
+    public void insertMessage(String message, int id, String title, Date time);
 
     /**
      * 查询所有留言
      */
-    ArrayList<Message> SelectAllMessage();
+    ArrayList<Message> selectAllMessage();
+
+    /**
+     * 查询是谁发送的
+     */
+    User selectAllUser(int id);
 }

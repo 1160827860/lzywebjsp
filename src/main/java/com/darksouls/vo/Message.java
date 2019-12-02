@@ -1,9 +1,29 @@
 package com.darksouls.vo;
 
+import java.util.Date;
+
 public class Message {
     private int user_id;
     private String message;
     private String title;
+    private Date cteate_date;
+
+    public Date getCteate_date() {
+        return cteate_date;
+    }
+
+    public void setCteate_date(Date cteate_date) {
+        this.cteate_date = cteate_date;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public Message() {
     }
 
