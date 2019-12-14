@@ -3,12 +3,13 @@ package com.darksouls.dao;
 import com.darksouls.util.DuridJdbc;
 import com.darksouls.vo.Message;
 import com.darksouls.vo.User;
+import org.springframework.stereotype.Component;
 
 import java.security.interfaces.RSAKey;
 import java.sql.*;
 import java.util.ArrayList;
 
-
+@Component
 public  class UserDaoImpl implements UserDao {
 
     /**
@@ -145,6 +146,7 @@ public  class UserDaoImpl implements UserDao {
                 temp.setMessage(rs.getString("text"));
                 temp.setTitle(rs.getString("title"));
                 temp.setCteate_date(rs.getDate("create_time"));
+                temp.setUser(selectAllUser(temp.getUser_id()));
                 res.add(temp);
             }
         } catch (SQLException e) {

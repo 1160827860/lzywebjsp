@@ -4,6 +4,8 @@ package com.darksouls.controller;
 import com.alibaba.druid.util.StringUtils;
 import com.darksouls.dao.UserDao;
 import com.darksouls.dao.UserDaoImpl;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +17,7 @@ import java.util.HashMap;
 /**
  * @author 李正阳 17060208112
  */
+
 public class LoginServerlet  extends HttpServlet {
     static HashMap<String,Integer> LoginPool = new HashMap<String, Integer>();
     @Override
@@ -56,6 +59,6 @@ public class LoginServerlet  extends HttpServlet {
         }catch (Exception e){
             e.printStackTrace();
         }
-        req.getRequestDispatcher("WEB-INF/view/error.jsp").forward(req,resp);
+//        req.getRequestDispatcher("WEB-INF/view/error.jsp").forward(req,resp);
     }
 }

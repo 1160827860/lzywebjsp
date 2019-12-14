@@ -1,12 +1,23 @@
 package com.darksouls.vo;
 
-import java.util.Date;
+import org.springframework.stereotype.Component;
 
+import java.util.Date;
+@Component
 public class Message {
     private int user_id;
     private String message;
     private String title;
     private Date cteate_date;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Date getCteate_date() {
         return cteate_date;

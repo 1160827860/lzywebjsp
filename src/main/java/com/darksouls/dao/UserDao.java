@@ -2,10 +2,11 @@ package com.darksouls.dao;
 
 import com.darksouls.vo.Message;
 import com.darksouls.vo.User;
+import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.util.ArrayList;
-
+@Component
 public interface UserDao {
 
     String selectUserPassword(String name);
