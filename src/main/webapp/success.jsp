@@ -22,7 +22,6 @@
     <title>Title</title>
 </head>
 <body>
-
     <jsp:include page="checkUserLevel.jsp"></jsp:include>
     登陆成功
     ${USER_NAME}访问登陆Servlet的次数${NUM}<br>

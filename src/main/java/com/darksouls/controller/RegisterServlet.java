@@ -27,7 +27,7 @@ public class RegisterServlet extends HttpServlet {
         UserDao userDao = new UserDaoImpl();
         if(userDao.selectUser(username,userpassword) == 0){
             User user = new User(username,userpassword,email);
-            userDao.insertUser(user);
+            userDao.addUser(user);
             req.getRequestDispatcher("WEB-INF/view/success.jsp").forward(req,resp);
         }else {
             req.getRequestDispatcher("WEB-INF/view/error.jsp").forward(req,resp);

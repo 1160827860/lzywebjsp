@@ -41,7 +41,7 @@ public  class UserDaoImpl implements UserDao {
      * '注册时插入用户信息
      * @param user 用户的实体类
      */
-    public void insertUser(User user) {
+    public void addUser(User user) {
         Connection conn = DuridJdbc.getConnection();
         PreparedStatement prst = null;
         ResultSet rs = null;

@@ -37,5 +37,6 @@ properties.load(new FileInputStream("druid.properties"));
 DataSource ds = DruidDataSourceFactory.createDataSource(properties);
 conn = ds.getConnection();
 ```
+
  # 检查权限：
  在WEB-INF 中的内容是无法直接访问的只有跳转才能进入。

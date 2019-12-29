@@ -11,7 +11,7 @@ public interface UserDao {
 
     String selectUserPassword(String name);
 
-    void insertUser(User user);
+    void addUser(User user);
 
     int selectUser(String name,String password);
 

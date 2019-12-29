@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!--HTML设计作业-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/register_html" method="post">
+        <table>
+             <caption>New Member</caption>
+            <tr>
+                <td>ID</td><td><input  name="id" id="id" type="text"></td>
+            </tr>
+            <tr>
+                <td>Password</td><td><input name="passwrod" id="passwrod" type="text"></td>
+            </tr>
+            <tr>
+                <td>Re-Password</td><td><input name="Re-Password" id="Re-Password" type="text"></td>
+            </tr>
+            <tr>
+                <td>First Name</td><td><input name="fistname" id="fistname" type="text"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td><td><input name="lastname" id="lastname" type="text"></td>
+            </tr>
+            <tr>
+                <td>Address</td><td><input name="address" id="address" type="text"></td>
+            </tr>
+            <tr>
+                <td>City</td><td><input name="city" id="city" type="text"></td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td>
+                    <select>
+                        <option name="state">中国</option>
+                        <option name="state">美国</option>
+                        <option name="state">巴西</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Country</td><td><input name="country" id="country" type="text"></td>
+            </tr>
+            <tr>
+                <td>Email Address</td><td><input name="emailaddress" id="emailaddress" type="text"></td>
+            </tr>
+            <tr>
+                <td>Select Internet</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="Technology">Technology
+                    <input type="checkbox" name="hobby"value="Enterprise">Enterprise
+                    <input type="checkbox" name="hobby"value="Research">Research
+                    <input type="checkbox" name="hobby"value="Government">Government
+                    <input type="checkbox" name="hobby"value="People">People
+                    <input type="checkbox" name="hobby"value="Life Style">Life Style
+                    <input type="checkbox" name="hobby"value="Opinion">Opinion
+                </td>
+            </tr>
+            <tr>
+                <td>Question</td>
+                <td>
+                    <select id="question" name="question">
+                        <option >上的小学叫什么名字？</option>
+                        <option>母亲的姓氏</option>
+                        <option>父亲的姓氏</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Answer</td><td><input name="answer" id="answer" type="text"></td>
+            </tr>
+        </table>
+        <input type="submit" value="提交">
+    </form>
+</body>
+</html>
